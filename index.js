@@ -10,8 +10,8 @@ const T = new Twit({
     strictSSL: true,
 })
 
-// Retwitea lo que contenga el hash #ojete
-const stream = T.stream('statuses/filter', { track: '#css' })
+// Retwitea lo que contenga el filtro
+const stream = T.stream('statuses/filter', { track: '#shittytattoo' })
 
 // Registro de errores
 const RegistroErrores = (error, data, response) => {
@@ -21,8 +21,7 @@ const RegistroErrores = (error, data, response) => {
 // Tareas
 
 stream.on('tweet', tweet => {
-    console.log(tweet);
-    
+   
     // Retweet
     T.post('statuses/retweet/:id', {
         id: tweet.id_str
